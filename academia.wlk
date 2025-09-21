@@ -4,18 +4,28 @@ métodos: reclutar, poderTotal, deltaEnergia, ...
 */
 
 import magos.*
-object academina {
+object academia {
   const equipoDeMagos = []
   const listaDeCandidatos = []
-  const listaDePoderes = []
-  method evaluar(unMago){
+  
+  // necesito los getters para consultar en los test
+  method equipoDeMagos() {
+    return equipoDeMagos    
+  }
+  method listaDeCandidatos() {
+    return listaDeCandidatos
+  }
+  
+  
+  method reclutar(unMago){
     if (unMago.energia()>40 and unMago.poder()>= 30){
-      unMago.adicionalAlEquipo()
+      self.adicionarAlEquipo(unMago)
     }
     else{
       listaDeCandidatos.add(unMago)
     }
   }
+
   method adicionarAlEquipo(unMago){
     if (listaDeCandidatos.contains(unMago)){
       listaDeCandidatos.remove(unMago)
