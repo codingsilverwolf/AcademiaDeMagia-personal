@@ -1,7 +1,32 @@
 import academia.*
 import magos.*
-describe "academina" {
-    test "test 1" {
-        assert.that(true)
+
+describe "test de selene" {
+    test "Selene entrena sin estar potenciada y su energía aumenta en 25" {
+        selene.noEstaPotenciada()
+        selene.entrenar()
+        assert.equals(60, selene.energia())
     }
+    test "Ahora selene entrena estando potenciada y su poder se duplica"{
+        selene.entrenar()
+        assert.equals(120, selene.poder())
+    }
+
+}
+
+describe "test de balthazar"{
+    test "Balthazar entrena y ahora su poder es"{   
+        balthazar.entrenar()
+        assert.equals(87, balthazar.poder())
+    }
+
+}
+
+describe "test de academia" {
+  test "La academia entrena a los 4 magos. Balthazar e Iris permanecen en el equipo" {
+    academia.reclutar(selene)
+    academia.reclutar(balthazar)
+    assert.that(academia.equipoDeMagos().contains(balthazar))
+    
+  }
 }
