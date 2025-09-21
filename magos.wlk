@@ -11,6 +11,13 @@ object selene {
   var luzLunar = false
   var estaPotenciada = true
 
+  // academia debe consultar la energía y poder
+  method energia(){
+    return energia
+  }
+  method poder(){
+    return poder
+  }
   method alternarLuzLunar(){
     luzLunar = not luzLunar
   }
@@ -19,9 +26,7 @@ object selene {
     estaPotenciada = not estaPotenciada
   }
 
-  method poder(){
-    return poder
-  }
+  
 
   method entrenar(){
     if (estaPotenciada) {
@@ -38,10 +43,15 @@ object selene {
 
 
 object balthazar {
+  var energia = 0
   var horasDeEntrenamiento = 450
   var hechizosDañinos = 0
   var poderbase = 35 - 3*hechizosDañinos
 
+  // academia debe consultar la energía y poder
+  method energia(){
+    return energia
+  }
   method poder(){
     return horasDeEntrenamiento/10
   }
