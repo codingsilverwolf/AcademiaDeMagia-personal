@@ -94,12 +94,12 @@ object escudo{
       resistencia+= 150
     }
     else{
-      resistencia+= 80
+      resistencia+= 80*iris.capacidadDeSanacion()
     }
   }
   method mejorarDurabilidad(){
     if (iris.capacidadDeSanacion() % 2 == 1){
-      durabilidad+= 100*iris.capacidadDeSanacion()
+      durabilidad+= 100
     }
     else{
       durabilidad+= 60*iris.capacidadDeSanacion()
