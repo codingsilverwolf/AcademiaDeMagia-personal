@@ -82,15 +82,19 @@ object iris {
 object escudo{
   var resistencia = 400
   var durabilidad = 600
+  // Necesito los getters para el testeo
+  method resistencia() {
+    return resistencia
+  }
   method durabilidad() {
     return durabilidad.min(1000)    
   }
   method mejorarResistencia(){
     if (iris.capacidadDeSanacion() % 2 == 1){
-      resistencia+= 150*iris.capacidadDeSanacion()
+      resistencia+= 150
     }
     else{
-      resistencia+= 80*iris.capacidadDeSanacion()
+      resistencia+= 80
     }
   }
   method mejorarDurabilidad(){
