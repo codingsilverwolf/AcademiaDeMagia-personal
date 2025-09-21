@@ -60,8 +60,49 @@ object balthazar {
 }
 
 object iris {
+  var capacidadDeSanacion = 2
+  method energia() = 80
+  method poder() = 35
+  
+  method capacidadDeSanacion(){
+    return capacidadDeSanacion
+  }
+
+  method entrenar(){
+    capacidadDeSanacion+=1
+  }
+
+  method usarSanacionEnEscudoMagicoDeArcana(){
+    escudo.mejorarResistencia()
+    escudo.mejorarDurabilidad()
+  }
+
 }
 
+object escudo{
+  var resistencia = 400
+  var durabilidad = 600
+  method durabilidad() {
+    return durabilidad.min(1000)    
+  }
+  method mejorarResistencia(){
+    if (iris.capacidadDeSanacion() % 2 == 1){
+      resistencia+= 150*iris.capacidadDeSanacion()
+    }
+    else{
+      resistencia+= 80*iris.capacidadDeSanacion()
+    }
+  }
+  method mejorarDurabilidad(){
+    if (iris.capacidadDeSanacion() % 2 == 1){
+      durabilidad+= 100*iris.capacidadDeSanacion()
+    }
+    else{
+      durabilidad+= 60*iris.capacidadDeSanacion()
+    }
+
+  }
+}
 
 object aldric {
 
