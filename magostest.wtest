@@ -22,6 +22,25 @@ describe "test de balthazar"{
 
 }
 
+describe "test de iris"{
+    test "Iris usa sanacion en el Escudo Mágico de Arcana luego de entrenar una vez"{
+        iris.entrenar()
+        iris.usarSanacionEnEscudoMagicoDeArcana()
+        assert.equals(550, escudo.resistencia())
+        assert.equals(700, escudo.durabilidad())
+    }
+
+    test "Iris vuelve a entrenar y a usar sanacion en el Escudo Mágico de Arcana"{
+        iris.entrenar()
+        iris.usarSanacionEnEscudoMagicoDeArcana()
+        iris.entrenar()
+        iris.usarSanacionEnEscudoMagicoDeArcana()
+        assert.equals(870, escudo.resistencia())
+        assert.equals(940, escudo.durabilidad())
+    }
+
+}
+
 describe "test de academia" {
   test "La academia entrena a los 4 magos. Balthazar e Iris permanecen en el equipo" {
     academia.reclutar(selene)
