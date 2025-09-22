@@ -42,7 +42,7 @@ object academia {
     return not equipoDeMagos.any({m => m.energia() < 45})
   }
   method deltaEnergia(){
-    return equipoDeMagos.fold(equipoDeMagos.anyOne(), {accum, mago =>  accum.poder().max(mago.poder())})
+    return (self.equipoDeMagos().max({m => m.poder()}) - self.equipoDeMagos().min({m => m.poder()})).abs()
     
   }
 
@@ -51,3 +51,5 @@ object academia {
 
   }
 }
+
+// return equipoDeMagos.fold(equipoDeMagos.anyOne(), {accum, mago =>  accum.poder().max(mago.poder())})
